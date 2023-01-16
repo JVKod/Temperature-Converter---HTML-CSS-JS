@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <!--Script Portion written by Justin Kodouangchan, 2020-11-13, Functions to Convert Temperature-->
+    <head>
+        <title>Lab 4</title>
+        <style>
+            body 
+            {
+                background-color: tomato;
+                color: black;
+                text-align: center;
+            }
+
+            .tempStyle {
+                font-size: 48px;
+                font-weight: bolder;
+                padding: 5px;
+                color: darkblue;
+                background-color: peachpuff;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <h1>Temperature Converter</h1>
+
+        <!-- Output -->
+        <p class="tempStyle" id="pTemperature">
+            [Temperature Here]
+        </p>
+
+        <!-- User Input -->
+        <div>
+            Enter Temperature to Convert: 
+            <br><br>
+
+            <!-- Textbox -->
+            <input type="number" id="tbInput" placeholder="74" />
+            <br><br>
+
+            <!-- Buttons -->
+            <input type="button" value="Convert To Fahrenheit" onclick="celsiusToFahrButton()"/>
+            <input type="button" value="Convert To Celsius" onclick="fahrenheitToCelsius()"/>
+
+        </div>
+
+        <!-- Script -->
+        <script>
+            
+            /*
+            Event Listener Functions
+            */
+
+            // Convert Celsius to Fahrenheit Button
+            function celsiusToFahrButton()
+            {
+                var userInput = document.getElementById("tbInput").value;
+                userInput = parseInt(userInput);
+                fahrenheit = (userInput * 1.8) + 32;
+                fahrenheit = Math.round(fahrenheit);
+                document.getElementById("pTemperature").innerText = fahrenheit + "°F";   
+            }
+
+            // Convert Fahrenheit to Celsius Button
+            function fahrenheitToCelsius()
+            {
+                var userInput = document.getElementById("tbInput").value;
+                userInput = parseInt(userInput);
+                celsius = (userInput - 32) * 0.55;
+                celsius = Math.round(celsius);
+                document.getElementById("pTemperature").innerText = celsius + "°C";   
+            }
+
+        </script>
+    </body>
+</html>
